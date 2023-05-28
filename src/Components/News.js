@@ -37,7 +37,7 @@ export default function News(props) {
     setProgress(70)
     setData(data.concat(parsedData.results));
     setProgress(100)
-    console.log(parsedData.results)
+    // console.log(parsedData.results)
     setpage(parsedData.nextPage);
   }
 

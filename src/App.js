@@ -19,7 +19,7 @@ function App() {
     <Navbar/>
       <Routes>
 
-        <Route exact path='/'  key="top"  element={<News category="top" setProgress={setProgress}/>}/>
+        <Route index={true} key="top"  element={<News category="top" setProgress={setProgress}/>}/>
         <Route exact path='/sports' key="sports"  element={<News category="sports" setProgress={setProgress}/>}/>
         <Route exact path='/technology' key="technology"  element={<News category="technology" setProgress={setProgress}/>}/>
         <Route exact path='/business' key="business"  element={<News category={"business"} setProgress={setProgress}/>}/>

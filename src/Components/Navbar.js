@@ -1,14 +1,22 @@
-import React from 'react'
+import React ,{useRef,useEffect} from 'react'
 import '../App.css';
 import {Link} from 'react-router-dom'
 
 import {  FaGithub, FaLinkedin} from 'react-icons/fa'
 const Navbar = () => {
+
+  const navRef = useRef();
+  useEffect(() => {
+    navRef.current.click();
+    console.log("hello");
+  }, [])
+  
+
   return (
     <>
     <nav className="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
   <div className="container-fluid">
-    <Link className="navbar-brand" to="/">NewsMan</Link>
+    <Link className="navbar-brand" to="/" ref={navRef} >NewsMan</Link>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
