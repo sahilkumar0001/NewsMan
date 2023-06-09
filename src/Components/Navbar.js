@@ -1,10 +1,16 @@
 import React ,{useRef,useEffect} from 'react'
 import '../App.css';
-import {Link} from 'react-router-dom'
+import {Link, useLocation} from 'react-router-dom'
 
 import {  FaGithub, FaLinkedin} from 'react-icons/fa'
 const Navbar = () => {
-
+  const pathname = useLocation().pathname;
+  let path;
+  if (pathname==="/") {
+    path="General"
+  } else {
+    path=`${pathname.charAt(1).toUpperCase()}${pathname.slice(2)}`
+  }
   const navRef = useRef();
   useEffect(() => {
     navRef.current.click();
@@ -28,7 +34,7 @@ const Navbar = () => {
         
         <li className="nav-item dropdown">
           <Link className="nav-link dropdown-toggle" to="/" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Category
+            {path}
           </Link>
           <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><Link className="dropdown-item" to="/">General</Link></li>
