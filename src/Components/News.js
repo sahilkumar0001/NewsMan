@@ -16,7 +16,7 @@ export default function News(props) {
 
   const FetchData=async()=>{
     setProgress(30)
-    const url = `https://newsdata.io/api/1/news?apikey=${apiKey}&country=in&category=${category}`;
+    const url = `https://newsdata.io/api/1/news?apikey=${apiKey}&language=en,hi,pa&country=in&category=${category}`;
     var response = await fetch(url);
     setProgress(50)
     var parsedData = await response.json();
@@ -30,7 +30,7 @@ export default function News(props) {
 
   const FetchMoreData=async()=>{
     setProgress(30)
-    const url = `https://newsdata.io/api/1/news?apikey=${apiKey}&country=in&category=${category}&page=${page}`;
+    const url = `https://newsdata.io/api/1/news?apikey=${apiKey}&country=in&language=en,hi,pa&category=${category}&page=${page}`;
     var response = await fetch(url);
     setProgress(50)
     var parsedData = await response.json();

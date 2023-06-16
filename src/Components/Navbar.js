@@ -1,8 +1,8 @@
-import React ,{useRef,useEffect} from 'react'
+import React ,{useRef,useEffect,useState} from 'react'
 import '../App.css';
 import {Link, useLocation} from 'react-router-dom'
 
-import {  FaGithub, FaLinkedin} from 'react-icons/fa'
+import {  FaGithub, FaLinkedin, FaArrowUp} from 'react-icons/fa'
 const Navbar = () => {
   const pathname = useLocation().pathname;
   let path;
@@ -17,7 +17,15 @@ const Navbar = () => {
     console.log("hello");
   }, [])
   
-
+  const [scroll, setscroll] = useState("none");
+  window.onscroll=function () {
+    if(document.documentElement.scrollTop>20){
+      setscroll("block");
+    }
+    else{
+      setscroll("none");
+    }
+  };
   return (
     <>
     <nav className="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
@@ -56,6 +64,7 @@ const Navbar = () => {
     </div>
   </div>
 </nav>
+<button className="scroll" style={{display:`${scroll}`}} onClick={()=>{document.documentElement.scrollTop=0}}><FaArrowUp/></button>
     </>
   )
 }
